@@ -2,9 +2,7 @@ import requests
 from twilio.rest import Client
 from decouple import config
 
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
-PHONE_NUMBER = "+1 407 890 7431"
+PHONE_NUMBER = "TWILIO_PHONE_NUMBER"
 api_key = config("API_KEY")
 account_sid = 'AC8371b95d0fccc4ceb78b999a5731a0fb'
 auth_token = config("AUTH_TOKEN")
@@ -34,7 +32,7 @@ if is_rain:
         .create(
             body="Woi, Daily reminder to bring your raincoat. It's going to rain today.",
             from_=PHONE_NUMBER,
-            to='+62 856-5685-0494'
+            to='YOUR_PHONE_NUMBER'
         )
     print(message.sid)
 else:
@@ -43,7 +41,7 @@ else:
         .create(
         body="It's not going to rain.",
         from_=PHONE_NUMBER,
-        to='+62 856-5685-0494'
+        to='YOUR_PHONE_NUMBER'
     )
     print(message.sid)
 
